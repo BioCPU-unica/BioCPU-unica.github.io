@@ -1,0 +1,606 @@
+/* ============================================
+   CSS Variables
+   ============================================ */
+:root {
+    --primary: #6495ed;
+    --secondary: #87cefa;
+    --accent: #00bfff;
+    --bg-light: #faf9f6;
+    --bg-dark: #0d1b0e;
+    --text-dark: #1a1a1a;
+    --text-light: #d4dee5;
+    --border: #d4dee5;
+}
+
+/* ============================================
+   Reset & Base Styles
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Crimson Pro', serif;
+    background: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ============================================
+   Header
+   ============================================ */
+header {
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--primary) 100%);
+    color: var(--text-light);
+    padding: 2rem 2rem 1rem;
+    text-align: center;
+    border-bottom: 4px solid var(--accent);
+    position: relative;
+    overflow: hidden;
+    min-height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 3;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-right: 1rem;
+}
+
+.header-logo {
+    width: 120px;
+    height: auto;
+}
+
+.header-text {
+    text-align: left;
+}
+
+h1 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+}
+
+.tagline {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.2rem;
+    opacity: 0.9;
+    font-style: italic;
+    color: var(--text-light);
+}
+
+/* DNA Header Animation */
+.dna-header-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    opacity: 0.15;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.dna-header-animation svg {
+    width: 100%;
+    height: 100%;
+}
+
+.covalent-bond {
+    stroke: var(--accent);
+    stroke-width: 1.5;
+    opacity: 0.7;
+}
+
+/* ============================================
+   Navigation
+   ============================================ */
+nav {
+    background: white;
+    border-bottom: 2px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    display: block;
+    padding: 1.2rem 2rem;
+    color: var(--text-dark);
+    text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+nav a:hover {
+    background: var(--bg-light);
+    border-bottom-color: var(--accent);
+    color: var(--primary);
+}
+
+/* ============================================
+   Main Content
+   ============================================ */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem 0rem;
+}
+
+/* ============================================
+   Sections
+   ============================================ */
+section {
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+section:nth-child(1) { animation-delay: 0.1s; }
+section:nth-child(2) { animation-delay: 0.2s; }
+section:nth-child(3) { animation-delay: 0.3s; }
+section:nth-child(4) { animation-delay: 0.4s; }
+section:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   Headings
+   ============================================ */
+h2 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--accent);
+    display: inline-block;
+}
+
+h3 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* ============================================
+   Cards
+   ============================================ */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 2px solid var(--border);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0rem;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(26, 77, 46, 0.15);
+    border-color: var(--accent);
+}
+
+.card:hover::before {
+    transform: scaleX(1);
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+}
+
+.card p {
+    margin-bottom: 0.5rem;
+}
+
+/* Member Cards */
+.member-card {
+    text-align: center;
+    margin-bottom: 0rem;
+}
+
+.member-card .avatar {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 2rem;
+    color: white;
+    font-weight: 600;
+}
+
+.member-card .role {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+.member-card .institution {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+}
+
+/* ============================================
+   Timeline (Events)
+   ============================================ */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin-top: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary), var(--accent));
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.5rem;
+    top: 0.5rem;
+    width: 12px;
+    height: 12px;
+    background: var(--accent);
+    border: 3px solid var(--bg-light);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--primary);
+}
+
+.timeline-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.timeline-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.timeline-description {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Upcoming Event Highlight */
+.timeline-item.upcoming-event {
+    background: linear-gradient(90deg,
+        rgba(106, 167, 187, 0.4) 0%,
+        rgba(106, 167, 187, 0.4) 100%);
+    padding: 1rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent);
+    padding-left: calc(2rem + 1rem);
+}
+
+.timeline-item.upcoming-event::before {
+    background: var(--primary);
+    box-shadow: 0 0 0 4px rgba(106, 167, 187, 0.3);
+    animation: pulse 2s infinite;
+}
+
+.timeline-item.upcoming-event .timeline-date {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.timeline-item.upcoming-event .timeline-title::after {
+    content: " 🔔";
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 4px rgba(106, 167, 187, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 0 6px rgba(106, 167, 187, 0.5);
+    }
+}
+
+/* ============================================
+   Mission Statement
+   ============================================ */
+.mission {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+    padding: 3rem;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(173, 216, 230, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.mission::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    font-size: 120px;
+    opacity: 0.1;
+    font-family: serif;
+}
+
+/* ============================================
+   Join Us Box
+   ============================================ */
+.join-box {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 2px solid var(--border);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.join-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.join-box h3 {
+    margin-top: 0;
+    color: var(--primary);
+    font-size: 1.5rem;
+}
+
+.join-box p {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.join-cta {
+    margin-top: 2rem;
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 2px solid var(--border);
+}
+
+.join-button,
+.page-link {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(76, 155, 158, 0.3);
+    border-top: 2rem;
+}
+
+.join-button:hover,
+.page-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(173, 216, 230, 0.4);
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+}
+
+.join-details {
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 0rem;
+}
+
+.join-details strong {
+    color: var(--primary);
+    font-style: normal;
+}
+
+/* ============================================
+   Resources
+   ============================================ */
+.resource-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.resource-item {
+    background: white;
+    padding: 1.5rem;
+    border-left: 4px solid var(--accent);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.resource-item:hover {
+    border-left-color: var(--primary);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transform: translateX(5px);
+}
+
+.resource-item h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+.resource-item a {
+    color: var(--secondary);
+    text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+}
+
+.resource-item a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+footer {
+    background: var(--bg-dark);
+    color: var(--text-light);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   DNA Background Animation (unused)
+   ============================================ */
+.dna-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.03;
+    pointer-events: none;
+}
+
+.helix-strand {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom,
+        transparent 0%,
+        var(--primary) 25%,
+        var(--secondary) 50%,
+        var(--primary) 75%,
+        transparent 100%);
+    animation: rotate 20s linear infinite;
+}
+
+.helix-strand:nth-child(1) { left: 20%; }
+.helix-strand:nth-child(2) { left: 40%; animation-delay: -5s; }
+.helix-strand:nth-child(3) { left: 60%; animation-delay: -10s; }
+.helix-strand:nth-child(4) { left: 80%; animation-delay: -15s; }
+
+@keyframes rotate {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-100px) rotate(360deg); }
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+@media (max-width: 768px) {
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+    nav a { padding: 1rem 1.5rem; }
+    .container { padding: 2rem 1rem; }
+    .mission { padding: 2rem; font-size: 1.1rem; }
+}

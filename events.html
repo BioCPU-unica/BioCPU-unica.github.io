@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioCPU Events</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<header>
+    <div class="dna-header-animation">
+        <svg viewBox="0 0 200 200" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="strand1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#6495ed;stop-opacity:0.8" />
+                    <stop offset="50%" style="stop-color:#87cefa;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#00bfff;stop-opacity:0.8" />
+                </linearGradient>
+                <linearGradient id="strand2" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#00bfff;stop-opacity:0.8" />
+                    <stop offset="50%" style="stop-color:#6495ed;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#87cefa;stop-opacity:0.8" />
+                </linearGradient>
+            </defs>
+            
+            <path class="helix-path helix-path-1" stroke="url(#strand1)" fill="none" stroke-width="3" />
+            <path class="helix-path helix-path-2" stroke="url(#strand2)" fill="none" stroke-width="3" />
+            
+            <g class="base-pairs"></g>
+        </svg>
+    </div>
+
+    <div class="header-content">
+        <div class="header-text">
+            <h1>BioCPU @ Unica</h1>
+            <p class="tagline">Decoding genomes, encoding collaboration</p>
+        </div>
+        <img src="image/biocpu_logo.png" alt="logo" class="header-logo">
+    </div>
+</header>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html#mission">Presentation</a></li>
+            <li><a href="index.html#join">Join Us</a></li>
+            <li><a href="organizers.html">Organizers</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section>
+            <h2>Events</h2>
+            <p>Keep track of the next BioCPU events and meetings, updated regularly for the entire community.</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">April 24, 2026</div>
+                    <div class="timeline-title">PhDs Zoom meeting</div>
+                    <div class="timeline-description">Julien Mercier & Safae Ouali</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">May 22, 2026</div>
+                    <div class="timeline-title">PhDs Zoom meeting</div>
+                    <div class="timeline-description">Wassila Khatir & Jeanne Le Clezio</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">June 26, 2026</div>
+                    <div class="timeline-title">REBICA conference</div>
+                    <div class="timeline-description">TBD</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">September 18, 2026</div>
+                    <div class="timeline-title">PhDs Zoom meeting</div>
+                    <div class="timeline-description">Dany Mukesha & Hiba Laghrissi</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Join the next session</h2>
+            <p>If you want to be notified about future meetings and events, join the BioCPU mailing list and get updates directly.</p>
+            <a href="index.html#join" class="page-link">Join Us</a>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 BioCPU | Built with 🧬 by BioCPU organizers</p>
+    </footer>
+
+    <script>
+        function highlightUpcomingEvent() {
+            const now = new Date();
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            let nextEventFound = false;
+
+            timelineItems.forEach(item => {
+                const dateText = item.querySelector('.timeline-date').textContent;
+                const eventDate = parseEventDate(dateText);
+                item.classList.remove('upcoming-event');
+                
+                if (!nextEventFound && eventDate) {
+                    // Compare only year, month, and day (no time)
+                    const eventDay = new Date(eventDate.getFullYear(), eventDate.getMonth(), eventDate.getDate());
+                    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+                    const tomorrow = new Date(today.getTime() + 24 * 60 * 60 * 1000);
+                    
+                    if (eventDay >= today && eventDay < tomorrow) {
+                        // Current day event
+                        item.classList.add('upcoming-event');
+                        nextEventFound = true;
+                    } else if (eventDay >= tomorrow && !nextEventFound) {
+                        // Future event (after today)
+                        item.classList.add('upcoming-event');
+                        nextEventFound = true;
+                    }
+                }
+            });
+        }
+
+        function parseEventDate(dateText) {
+            try {
+                const rangeMatch = dateText.match(/(\w+)\s+(\d+)(?:-\d+)?,\s+(\d{4})/);
+                if (rangeMatch) {
+                    const [, month, day, year] = rangeMatch;
+                    return new Date(`${month} ${day}, ${year}`);
+                }
+                return new Date(dateText);
+            } catch (e) {
+                return null;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', highlightUpcomingEvent);
+    </script>
+
+
+    <script src="js/dna-animation.js"></script>
+</body>
+</html>

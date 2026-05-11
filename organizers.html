@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioCPU Organizers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<header>
+    <div class="dna-header-animation">
+        <svg viewBox="0 0 200 200" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="strand1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#6495ed;stop-opacity:0.8" />
+                    <stop offset="50%" style="stop-color:#87cefa;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#00bfff;stop-opacity:0.8" />
+                </linearGradient>
+                <linearGradient id="strand2" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#00bfff;stop-opacity:0.8" />
+                    <stop offset="50%" style="stop-color:#6495ed;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#87cefa;stop-opacity:0.8" />
+                </linearGradient>
+            </defs>
+            
+            <path class="helix-path helix-path-1" stroke="url(#strand1)" fill="none" stroke-width="3" />
+            <path class="helix-path helix-path-2" stroke="url(#strand2)" fill="none" stroke-width="3" />
+            
+            <g class="base-pairs"></g>
+        </svg>
+    </div>
+
+    <div class="header-content">
+        <div class="header-text">
+            <h1>BioCPU @ Unica</h1>
+            <p class="tagline">Decoding genomes, encoding collaboration</p>
+        </div>
+        <img src="image/biocpu_logo.png" alt="logo" class="header-logo">
+    </div>
+</header>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html#mission">Presentation</a></li>
+            <li><a href="index.html#join">Join Us</a></li>
+            <li><a href="organizers.html">Organizers</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section>
+            <h2>Organizers</h2>
+            <p>Our organizing team is made up of PhD students who coordinate meetings across the community.</p>
+            <div class="card-grid">
+                <div class="card member-card">
+                    <div class="avatar">HL</div>
+                    <h3>Hiba LAGHRISSI</h3>
+                    <p class="institution">Institut Biologie Valrose</p>
+                    <p>Investigation of age-related translational regulatory mechanisms.</p>
+                </div>
+                <div class="card member-card">
+                    <div class="avatar">PP</div>
+                    <h3>Paola PORRACCIOLO</h3>
+                    <p class="institution">Institut de Pharmacologie Moléculaire et Cellulaire</p>
+                    <p>Boolean network modelling and mitochondrial heteroplasmy in respiratory epithelial biology.</p>
+                </div>
+                <div class="card member-card">
+                    <div class="avatar">MM</div>
+                    <h3>Maxime MULTARI</h3>
+                    <p class="institution">Institut Sophia Agrobiotech</p>
+                    <p>Development of knowledge graphs and GRN in plants upon biotic interactions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="card-grid">
+                <div class="card" style="max-width: 600px; margin: 1rem auto;">
+                    <h3>Get in touch</h3>
+                    <p>If you have questions, suggestions or want to get involved, please reach out!</p>
+                    <p><strong>Contact:</strong> <a href="mailto:biocpu.nice@gmail.com" style="color: var(--accent);">biocpu.nice@gmail.com</a></p>
+                    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/biocpu-biocpu-27b33a3ab/" style="color: var(--accent);">BioCPU</a></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 BioCPU | Built with 🧬 by BioCPU organizers</p>
+    </footer>
+
+
+    <script src="js/dna-animation.js"></script>
+</body>
+</html>

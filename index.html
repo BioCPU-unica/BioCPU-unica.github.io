@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioCPU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<header>
+    <div class="dna-header-animation">
+        <svg viewBox="0 0 200 200" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="strand1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#6495ed;stop-opacity:0.8" />
+                    <stop offset="50%" style="stop-color:#87cefa;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#00bfff;stop-opacity:0.8" />
+                </linearGradient>
+                <linearGradient id="strand2" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#00bfff;stop-opacity:0.8" />
+                    <stop offset="50%" style="stop-color:#6495ed;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#87cefa;stop-opacity:0.8" />
+                </linearGradient>
+            </defs>
+            
+            <path class="helix-path helix-path-1" stroke="url(#strand1)" fill="none" stroke-width="3" />
+            <path class="helix-path helix-path-2" stroke="url(#strand2)" fill="none" stroke-width="3" />
+            
+            <g class="base-pairs"></g>
+        </svg>
+    </div>
+
+    <div class="header-content">
+        <div class="header-text">
+            <h1>BioCPU @ Unica</h1>
+            <p class="tagline">Decoding genomes, encoding collaboration</p>
+        </div>
+        <img src="image/biocpu_logo.png" alt="logo" class="header-logo">
+    </div>
+</header>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html#mission">Presentation</a></li>
+            <li><a href="index.html#join">Join Us</a></li>
+            <li><a href="organizers.html">Organizers</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="mission">
+            <h2>Presentation</h2>
+            <div class="mission">
+                BioCPU - “Bioinformatics Community for PhDs and Undergraduates" - is a community for PhD and undergraduate students in bioinformatics and computational biology at Université Côte d'Azur.
+            </div>
+        </section>
+
+        <section id="join">
+            <h2>Join Us</h2>
+            <div class="join-box">
+                <h3>Become Part of The Community</h3>
+                <p>We welcome PhD students, post-docs, engineers and students working in bioinformatics, computational biology, and related fields.</p>
+                <p>Fill the form to join our mailing list and stay updated on upcoming events.</p>
+                <div class="join-cta">
+                    <a href="https://forms.gle/1F8WT1BhVE8sNiE57" class="join-button">📄 Google Form</a>
+                    <p class="join-details"><strong>Monthly meetings:</strong> Friday, 1:00 PM, Zoom</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Explore the Community</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Meet the Organizers</h3>
+                    <p>Discover the team behind BioCPU and their research focus.</p>
+                    <a href="organizers.html" class="page-link">See Organizers</a>
+                </div>
+                <div class="card">
+                    <h3>Upcoming Events</h3>
+                    <p>Check the schedule for our next meetings and conferences.</p>
+                    <a href="events.html" class="page-link">See Events</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contacts</h2>
+            <div class="card-grid">
+                <div class="card" style="max-width: 600px; margin: 1rem auto;">
+                    <h3>Get in touch</h3>
+                    <p>If you have questions, suggestions or want to get involved, please reach out!</p>
+                    <p><strong>Contact:</strong> <a href="mailto:biocpu.nice@gmail.com" style="color: var(--accent);">biocpu.nice@gmail.com</a></p>
+                    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/biocpu-biocpu-27b33a3ab/" style="color: var(--accent);">BioCPU</a></p>
+                </div>
+                <div class="card" style="max-width: 600px; margin: 1rem auto;">
+                    <h3>Mailing List</h3>
+                    <p>Once part of the mailing list, you can also reach out to the community via email.</p>
+                    <p><strong>Mailing List:</strong> <a href="mailto:bioinformatique.phd@listes.univ-cotedazur.fr" style="color: var(--accent);">bioinformatique.phd@listes.univ-cotedazur.fr</a></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 BioCPU | Built with 🧬 by BioCPU organizers</p>
+    </footer>
+
+
+    <script src="js/dna-animation.js"></script>
+</body>
+</html>
